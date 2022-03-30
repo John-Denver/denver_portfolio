@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  line-height: 1.3em;
+}
+
+        canvas {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        }
+
+        /**
+        * Text Box Overlay
+        **/
+        #ShipsLog {
+        color: white;
+        font-family: roboto;
+        letter-spacing: 0.15em;
+        width: 400px;
+        margin: 30px 30px;
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 15px 20px 20px;
+        border-radius: 8px;
+        border: none;
+        position: fixed;
+        bottom: 5px;
+        z-index: -1;
+        opacity: 0.1;
+        transition: all 0.5s ease-in-out;
+        }
+        #warps, #word, #star, #warp, #words, #stars{
+            opacity: 0;
+        }
+
+        #ShipsLog:hover {
+            background-color: rgba(90, 90, 85, 0);
+        opacity: 0.6;
+        }
+
+        .leboli {
+        display: inline-block;
+        width: 80px;
+        font-size: 0.8em;
+        }
+
+        input,
+        .maneno {
+        margin-top: 15px;
+        }
+
+        input[type="checkbox"] {
+        display: none;
+        }
+
+        input[type="checkbox"]:checked + label {
+        background-color: #f19d00;
+        box-shadow: inset 2px 2px 4px #00000090, 2px 2px 3px #cccccc90;
+        border: 2px solid transparent;
+        }
+
+    </style>
+      <!-- Drawing Canvas for Stars, thanks Star Trek -->
+  <canvas id="canvas"></canvas>
+
+  <!-- About overvlay box -->
+    <div id="ShipsLog">
+
+        <label for="stars" id="star" class="leboli"># Stars</label>
+        <input type="hidden" id="stars" min="10" max="100" value="30"/>
+        <output for="stars">-</output>
+        <br>
+        
+        <label for="warp" id="warps" class="leboli"> Warp</label>
+        <input type="hidden" id="warp" min="0.1" max="9.9" value="1" step=.5/>
+        <output for="warp">-</output>
+        <br>
+
+        <label for="words" id="word" class="leboli">Words</label>
+        <textarea class="maneno" id="words" rows=2 cols=30>HTML 5, CSS3, JS, PHP, Connect, PYTHON, DJANGO, ANDROID, PHOTOSHOP, AFTER EFFECTS, GRAPHIC DESIGN, BOOTSTRAP, JQUERY</textarea>
+        <br>
+
+        
+
+        <input type="checkbox" id="engage" checked />
+        <label for="engage" class="leboli">Pause</label>
+
+    </div>
+
+
+    <script>
+        const random = Math.random;
+        const floor = Math.floor;
+        const abs = Math.abs;
+        const PI2X = Math.PI * 2;
+
+        const mainElement = document.querySelector('main');
+        const hideTextButton = document.querySelector('#hideText');
+        const hideTextLabel = document.querySelector('label[for="hideText"]');
+        const starsInput = document.querySelector('#stars');
+        const starsOutput = document.querySelector('output[for="stars"]');
+        const warpInput = document.querySelector('#warp');
+        const warpOutput = document.querySelector('output[for="warp"]');
+        const wordsInput = document.querySelector('#words');
+        const engageInput = document.querySelector('#engage');
+        const canvas = document.querySelector('canvas');
+        const context = canvas.getContext('2d');
+
+        let width, height;
+        const getWindowSize = ()=>{
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', getWindowSize);
+        getWindowSize();
+
+
+        let stars;
+        const updateStars = ()=>{ stars = Number(starsOutput.value = starsInput.value) }
+        starsInput.addEventListener('input', updateStars);
+        updateStars();
+
+
+        let warp;
+        const updateWarp = ()=>{ warp = Number(warpOutput.value = warpInput.value )}
+        warpInput.addEventListener('input', updateWarp);
+        updateWarp();
+
+
+        let words;
+        const updateWords = ()=>{ words = [...wordsInput.value.split(",")] }
+        wordsInput.addEventListener('input', updateWords);
+        updateWords();
+
+
+        let engage;
+        const updateEngage = function() { engage = engageInput.checked; }
+        engageInput.addEventListener('input', updateEngage);
+        updateEngage();
+
+
+        class Star {
+            
+        
+            constructor(){
+            this.x = floor(random() * width);
+            this.y = floor(random() * height);
+            this.z = floor(random() * 11 + 1);
+            this.word = null;
+            this.randomWord();
+            this.c = 0;
+            this.brightness = Math.min(255,floor(this.z * 30 + 50));
+            this.radius = Math.max(1, floor(this.z / 4) + .5)
+            }
+        
+            move(){
+            this.x += floor(1.25 ** (warp + this.z - 10)) + 1
+            
+            if (this.x > width * 1.25){ 
+                this.x = -this.radius * 2;
+                this.y = random() * height;
+                this.randomWord();
+            }
+            }
+        
+            randomWord(){
+            let i = words.length;
+            let j = floor(2 * stars * random());
+            this.word = (j < i) ? j : -1;
+            
+            }
+        
+            draw(){
+            let x = this.x, y = this.y, z = this.z; 
+            let radius = this.radius;
+            let brightness = this.brightness;
+            let tailSize = 2 +  2 ** warp;
+            
+            if (this.word > -1 && warp < 2){
+                
+                context.moveTo(x + 4, y + 1);
+                context.arc(x-1, y + 1, 6, 0 , Math.PI * 2)
+                context.strokeStyle = '#f19d00';
+                context.moveTo(x-7, y-7);
+                context.lineTo(x-16, y-16);
+                context.lineTo(x-24, y-16);
+                context.stroke();
+                context.font = (6 + this.z * 2) + 'px roboto';
+                context.textAlign = 'right';
+                context.fillStyle = '#f19d00';
+                context.fillText(words[this.word], x-27, y - 16 + this.z);
+            }
+            
+            while (tailSize > 0 && brightness > 15){
+                let hex = brightness.toString(16);
+                context.beginPath();
+                context.moveTo(x, y);
+                context.lineTo(x, y+ radius + .5);
+                context.strokeStyle = '#' + hex + hex + hex;
+                context.stroke();
+                x -= 1;
+                tailSize -= 1;
+                brightness -= (11-warp);
+            }
+        }
+        
+        }
+
+
+        let starz = [];
+        for (let i = 0; i < 100; i++){
+        starz.push(new Star());
+        }
+
+
+        const drawStars = () => {
+        context.clearRect(0,0,width,height);
+        let i = 0;
+        while (i < stars) starz[i++].draw();
+        }
+
+
+        const moveStars = ()=> {
+        let i = 0;
+        while (i < stars) starz[i++].move();
+        }
+
+
+        const drawAnimation = ()=>{
+        drawStars();
+        if (engage){
+            moveStars();  
+            requestAnimationFrame(drawAnimation);
+        }
+        
+        }
+
+
+        engageInput.addEventListener('input', drawAnimation);
+        drawAnimation();
+        console.log('ok');
+    </script>
+
+</body>
+</html>

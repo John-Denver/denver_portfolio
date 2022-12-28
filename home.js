@@ -333,4 +333,15 @@ $(".js-fav").on("click", function() {
 });
 
 
+$(document).scroll(function() {
+    var st = $(this).scrollTop();
+    $("#header").css({
+      "background-position-y": (-st/20)
+    })
+    $("#headerc").css({
+      "top": (-st/5),
+      "bottom": (st/5)
+    })
+  });
+
 // end skill section

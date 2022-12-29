@@ -1,13 +1,4 @@
-/*------------------------------------*\ $GLOBAL STYLES \*------------------------------------*/
-
-/* * Texts */
- .text-dark {
-	 color: rgba(0, 0, 0, 0.8);
-}
- .text-light {
-	 color: #fafafa;
-}
- .skills-text {
+.skills-text {
 	 font-size: 1em;
 	 font-weight: 300;
 	 letter-spacing: 2px;
@@ -20,18 +11,7 @@
 	}
 }
 /* * Backgrounds */
- .bg-black {
-	 background-color: #000;
-}
- .bg-yellow {
-	 background-color: #ffe400;
-}
- .bg-red {
-	 background-color: #e53a40;
-}
- .bg-blue {
-	 background-color: #30a9de;
-}
+
  .grey-overlay {
 	 background-color: rgba(34, 34, 34, 0.95);
      height: auto;

@@ -345,3 +345,93 @@ $(document).scroll(function() {
   });
 
 // end skill section
+
+// project section javascript
+/*Variables*/
+var container = document.body;
+var con = 0;
+var link = document.getElementsByClassName("control__item");
+var b = document.getElementsByClassName("background");
+var particles = document.getElementById("particles");
+
+/*Funciones*/
+function createParticle(event) {
+    var np = document.documentElement.clientWidth / 40;
+    particles.innerHTML = "";
+    for (var i = 0; i < np; i++) {
+        var w = document.documentElement.clientWidth;
+        var h = document.documentElement.clientHeight;
+        var rndw = Math.floor(Math.random() * w) + 1;
+        var rndh = Math.floor(Math.random() * h) + 1;
+        var widthpt = Math.floor(Math.random() * 6) + 3;
+        var opty = Math.floor(Math.random() * 5) + 2;
+        var anima = Math.floor(Math.random() * 12) + 8;
+
+        var div = document.createElement("div");
+        div.classList.add("particle");
+        div.style.marginLeft = rndw + "px";
+        div.style.marginTop = rndh + "px";
+        div.style.width = widthpt + "px";
+        div.style.height = widthpt + "px";
+        div.style.opacity = opty;
+        div.style.animation = "move " + anima + "s ease-in infinite ";
+        particles.appendChild(div);
+    }
+}
+function removeBg(event) {
+    for (var i = 0; i < b.length; i++) {
+        b[i].classList.remove("bg-active");
+    }
+}
+function getActive(event) {
+    for (var i = 0; i < link.length; i++) {
+        link[i].classList.remove("is-active");
+    }
+}
+function getBg(event) {
+    var id = this.id.split("link-").join("");
+    getActive();
+    this.classList.add("is-active");
+    removeBg()
+    b[id].classList.add("bg-active");
+    con = id;
+}
+function myWheel() {
+    var y = event.deltaY;
+    var x = event.keyCode;
+
+    if (y > 0 || x == 40) {
+        if (con < 6) {
+            con++;
+            removeBg()
+            b[con].classList.add("bg-active");
+            getActive();
+            link[con].classList.add("is-active");
+        }
+    }
+    if (y < 0 || x == 38) {
+        if (con > 0) {
+            con--;
+            removeBg()
+            b[con].classList.add("bg-active");
+            getActive();
+            link[con].classList.add("is-active");
+        }
+    }
+}
+/*Main function*/
+function main(event) {
+    for (var i = 0; i < link.length; i++) {
+        link[i].addEventListener("click", getBg);
+    }
+    createParticle();
+}
+/*Listener*/
+window.addEventListener("resize", createParticle);
+window.addEventListener("load", main);
+container.addEventListener("wheel", myWheel);
+container.addEventListener("keydown", myWheel);
+
+
+
+// end project section javascript

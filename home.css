@@ -767,7 +767,7 @@ canvas {
   border: 5px solid #fff;
   height: 40px;
   width: 40px;
-  background: #48cfad;
+  background: orange;
   position: absolute;
   display: block;
   left: 50%;
@@ -786,18 +786,18 @@ canvas {
   display: block;
   transform: rotate(-45deg);
 }
-#skills {
-  background: #37bc9b;
+/* #skills {
+  background-size: cover;
+  background-color: rgba(34, 34, 34, 0.95);
   overflow: hidden;
   position: relative;
   height: 90vh;
-  top: 90%;
   padding: 10% 40px;
   text-align: center;
 }
 #skills a {
   color: #fff;
-}
+} */
 
 
 .heading_title{

@@ -165,6 +165,18 @@ const random = Math.random;
 
     // nav background change on scroll
 
+    // Function used to shrink nav bar removing paddings and adding black background
+        $(document).scroll(function() {
+      var st = $(this).scrollTop();
+        $("#header", "#canvas").css({
+            "background-position-y": (-st / 20)
+      })
+        $("#decode-text").css({
+            "top": (-st / 5),
+        "bottom": (st / 5)
+      })
+    });
+
     $(window).scroll(function() {
       if ($(document).scrollTop() > 100) {
           $('.nav').addClass('affix');

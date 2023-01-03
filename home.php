@@ -9,21 +9,19 @@
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="contact.css">
   <link rel="stylesheet" href="projects.css">
+  <link rel="stylesheet" href="footer.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <style>
-  </style>
 </head>
 
 <body>
 
   <!-- Floating words background -->
 
-  <!-- Drawing Canvas for Stars, thanks Star Trek -->
+  <!-- Drawing Canvas for Stars -->
   <canvas id="canvas"></canvas>
 
-  <!-- About overvlay box -->
   <div id="ShipsLog">
 
     <label for="stars" id="star" class="leboli"># Stars</label>
@@ -40,14 +38,10 @@
     <textarea class="maneno" id="words" rows=2 cols=30>HTML 5, CSS3, JS, PHP, Connect, PYTHON, DJANGO, ANDROID, PHOTOSHOP, AFTER EFFECTS, GRAPHIC DESIGN, BOOTSTRAP, JQUERY</textarea>
     <br>
 
-
-
     <input type="checkbox" id="engage" checked />
     <label for="engage" class="leboli">Pause</label>
 
   </div>
-
-
 
   <!-- end floating words background -->
   <nav class="nav" style="z-index: 9999;">
@@ -72,9 +66,9 @@
       <div id="mainListDiv" class="main_list ">
         <ul class="navlinks ">
           <li class="" data-text="About"><a href="#">About</a></li>
-          <li class="" data-text="About"><a href="#">Skills</a></li>
-          <li class="" data-text="Portfolio"><a href="#">Projects</a></li>
-          <li class="" data-text="Contact"><a href="#">Contact</a></li>
+          <li class="" data-text="About"><a href="#skills">Skills</a></li>
+          <li class="" data-text="Portfolio"><a href="#main">Projects</a></li>
+          <li class="" data-text="Contact"><a href="#contact-section">Contact</a></li>
         </ul>
       </div>
       <span class="navTrigger">
@@ -243,8 +237,6 @@
     <div class="right-image">
       <img id="miself" src="./assets/images/splashh.png" alt="Myselfs image">
     </div>
-
-
   </section>
 
 
@@ -254,148 +246,17 @@
   </div>
 
   <!-- Skills Section -->
-  <section id="skills" class="skills-section">
-    <div class="content-section text-center grey-overlay">
-      <div class="container">
-        <div class="section-title mb-100">Skills</div>
-        <div class="row pt-30 pb-30">
-          <div class="col-sm-4 col-md-3 col-lg-3">
-            <div class="fa-solid fa-brain skills-icon mb-5"></div>
-            <div class="skills-text">Creative Thinking</div>
-          </div>
-          <div class="col-sm-4 col-md-3 col-lg-3">
-            <div class="fa fa-code skills-icon mb-5"></div>
-            <div class="skills-text">Web Design and Developemnt</div>
-          </div>
-          <div class="col-sm-4 col-md-3 col-lg-3">
-            <div class="fa fa-desktop skills-icon mb-5"></div>
-            <div class="skills-text">Responsive Design</div>
-          </div>
-          <div class="col-sm-4 col-md-3 col-lg-3">
-            <div class="fa-brands fa-python skills-icon mb-5"></div>
-            <div class="skills-text">Python(Django) Programming</div>
-          </div>
-          <div class="col-sm-4 col-md-3 col-lg-3">
-            <div class="fa-brands fa-php skills-icon mb-5"></div>
-            <div class="skills-text">PHP</div>
-          </div>
-          <div class="col-sm-4 col-md-3 col-lg-3">
-            <div class="fa-brands fa-css3 skills-icon mb-5"></div>
-            <div class="skills-text">CSS3</div>
-          </div>
-          <div class="col-sm-4 col-md-3 col-lg-3">
-            <div class="fa-brands fa-square-js skills-icon mb-5"></div>
-            <div class="skills-text">Javascript</div>
-          </div>
-          <div class="col-sm-4 col-md-3 col-lg-3">
-            <div class="fa fa-database skills-icon mb-5"></div>
-            <div class="skills-text">SQL</div>
-          </div>
-          <div class="col-sm-4 col-md-3 col-lg-3">
-            <div class="fa-solid fa-compass-drafting skills-icon mb-5"></div>
-            <div class="skills-text">Graphic and Motion Design</div>
-          </div>
-          <div class="col-sm-4 col-md-3 col-lg-3">
-            <div class="fa-brands fa-android skills-icon mb-5"></div>
-            <div class="skills-text">Android</div>
-          </div>
-          <div class="col-sm-4 col-md-3 col-lg-3">
-            <div class="fa-brands fa-wordpress skills-icon mb-5"></div>
-            <div class="skills-text">Wordpress</div>
-          </div>
-          <div class="col-sm-4 col-md-3 col-lg-3">
-            <div class="fa-solid fa-house skills-icon mb-5"></div>
-            <div class="skills-text">Development</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
+  <?php include 'skills.html'; ?>
 
   <!-- End skills section -->
+
   <div id="pageHr">
     <i><i></i></i>
   </div>
 
   <!-- PRojects Section -->
-  <div class="main" id="main">
-    <div class="particles" id="particles"></div>
-    <div class="control">
-      <a class="control__item is-active" id="link-0"></a>
-      <a class="control__item" id="link-1"></a>
-      <a class="control__item" id="link-2"></a>
-      <a class="control__item" id="link-3"></a>
-      <a class="control__item" id="link-4"></a>
-      <a class="control__item" id="link-5"></a>
-      <a class="control__item" id="link-6"></a>
-    </div>
-    <header class="header background" id="header"><img class="header__logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBB%0D%0AZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9u%0D%0AOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBT%0D%0AVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzEx%0D%0ALmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhcGFfMSIgeG1sbnM9Imh0dHA6Ly93d3cu%0D%0AdzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGlu%0D%0AayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIzMHB4IiBoZWlnaHQ9IjMwcHgiIHZpZXdCb3g9%0D%0AIjAgMCAzMCAzMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMzAgMzAiIHhtbDpzcGFjZT0i%0D%0AcHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0Y3RjdGNyIgZD0iTTAsMHYzMGgzMFYwSDB6IE03Ljgz%0D%0AOSw0LjI0Mmw2LjEyMy0wLjAxNWMwLjU1NC0wLjAwMSwxLjM4OSwwLjIyMywxLjg2NiwwLjQ5N2w2%0D%0ALjQ1MywzLjcxNA0KCWMwLjQ3NCwwLjI3NSwwLjg2NCwwLjk0OSwwLjg2MSwxLjVsLTAuMDA4LDIu%0D%0ANzEyYy0wLjAwMywwLjU1MS0wLjM5MywwLjc3My0wLjg3LDAuNUw3LjcwNCw0Ljc0NA0KCUM3LjIy%0D%0ANyw0LjQ3LDcuMjg4LDQuMjQ0LDcuODM5LDQuMjQyeiBNMjIuMTUsMjUuNzcybC02LjE2NS0wLjAw%0D%0AM2MtMC41NTQsMC0xLjM5Mi0wLjIyNy0xLjg2Ni0wLjUwM2wtNi4zOTQtMy43MTINCgljLTAuNDc1%0D%0ALTAuMjc2LTAuODY1LTAuOTU0LTAuODY1LTEuNTAydi0yLjY4NGMwLTAuNTUxLDAuMzktMC43NzUs%0D%0AMC44NjUtMC41bDE0LjU2LDguNDA1QzIyLjc2LDI1LjU1MSwyMi43MDEsMjUuNzcyLDIyLjE1LDI1%0D%0ALjc3MnoNCgkgTTIyLjI2NywyMC42NTZsLTIuMzMsMS4zNTdjLTAuNDc1LDAuMjc5LTEuMjUyLDAu%0D%0AMjc5LTEuNzI5LDAuMDA1bC0xMC40ODItNi4wNWMtMC40NzUtMC4yNzUtMC44NjctMC45NS0wLjg3%0D%0ALTEuNWwtMC4wMTMtMi43MjENCgljMC0wLjU1MSwwLjM4NS0wLjc3NSwwLjg2Mi0wLjUwMWwxNC41%0D%0ANiw4LjQwNkMyMi43NDEsMTkuOTI2LDIyLjc0MSwyMC4zOCwyMi4yNjcsMjAuNjU2eiBNMjMuMTUy%0D%0ALDE4LjI1OA0KCWMwLDAuNTUxLTAuMzkzLDAuNzc3LTAuODcsMC41MDFMNy43MDQsMTAuMzQ3Yy0w%0D%0ALjQ3Ny0wLjI3NC0wLjQ3Ny0wLjcyNSwwLTAuOTk5bDIuMzQxLTEuMzUyYzAuNDc3LTAuMjc0LDEu%0D%0AMjU3LTAuMjc0LDEuNzMxLDANCglsMTAuNTIsNi4wNzhjMC40NzcsMC4yNzYsMC44NjQsMC45NTEs%0D%0AMC44NjEsMS41MDFMMjMuMTUyLDE4LjI1OHoiLz4NCjwvc3ZnPg0K" alt="Ícono de roa" />
-      <div class="header__info">
-        <h1 class="header__title">MY PROJECTS</h1>
-      </div>
-    </header>
-    <div class="portfolio__item background">
-      <div class="portfolio__left">
-        <h2 class="portfolio__title">Bela Vista Management System</h2>
-        <p class="portfolio__info">Eleven was kidnapped and raised in Hawkins National Laboratory, where she was
-          experimented on for her inherited psychokinetic abilities. After escaping the lab, she was found by
-          Mike, Lucas, and Dustin. Upon discovering her abilities, Mike believed that she could help find Will,
-          their missing friend.</p>
-      </div>
-    </div>
-    <div class="portfolio__item background">
-      <div class="portfolio__left">
-        <h2 class="portfolio__title">Hospital management system & Doctor appointment</h2>
-        <p class="portfolio__info">When Mike's best friend, Will Byers, mysteriously went missing, he and his other
-          friends, Lucas and Dustin, made it their mission to find him. However, while searching for Will, they
-          stumbled upon an escaped girl named Eleven instead.</p>
-      </div>
-    </div>
-    <div class="portfolio__item background">
-      <div class="portfolio__left">
-        <h2 class="portfolio__title">Instagram Clone App</h2>
-        <p class="portfolio__info">On the night of November 6th, 1983, Will was abducted by the Demogorgon and taken
-          into an alternate dimension dubbed the Upside Down. For a week, Will evaded the creature while his
-          family and friends desperately searched for him.</p>
-      </div>
-    </div>
-    <div class="portfolio__item background">
-      <div class="portfolio__left">
-        <h2 class="portfolio__title">Events managemnt System</h2>
-        <p class="portfolio__info">The financially poor single mother of Will and Jonathan Byers, Joyce works as a
-          retail clerk and relies on help from her eldest to make ends meet. After Will mysteriously disappeared,
-          Joyce was certain that he was communicating with her through the lights in her house.</p>
-      </div>
-    </div>
-    <div class="portfolio__item background">
-      <div class="portfolio__left">
-        <h2 class="portfolio__title">POS System</h2>
-        <p class="portfolio__info">Hopper was Chief of Police in the small, sleepy town of Hawkins, Indiana, where
-          he used to live out a carefree existence - yet haunted by a troubled past. After the young son of an old
-          friend disappeared mysteriously, Hopper's life became infinitely more complicated.</p>
-      </div>
-    </div>
-    <div class="portfolio__item background">
-      <div class="portfolio__left">
-        <h2 class="portfolio__title">Events Management System</h2>
-        <p class="portfolio__info">The Demogorgon was a predatory humanoid creature that entered Hawkins, Indiana in
-          November 1983. The creature originated from the parallel dimension known as the Upside Down. When
-          Eleven, a psychic test subject from Hawkins National Laboratory, made interdimensional contact with it,
-          a gate between dimensions opened at the lab.</p>
-      </div>
-    </div>
-    <div class="portfolio__item background">
-      <div class="portfolio__left">
-        <h2 class="portfolio__title">Music and Album manager</h2>
-        <p class="portfolio__info">The Demogorgon was a predatory humanoid creature that entered Hawkins, Indiana in
-          November 1983. The creature originated from the parallel dimension known as the Upside Down. When
-          Eleven, a psychic test subject from Hawkins National Laboratory, made interdimensional contact with it,
-          a gate between dimensions opened at the lab.</p>
-      </div>
-    </div>
-    
-  </div>
+  <?php include 'projects.html'; ?>
   <!-- End projects Section -->
 
   <div id="pageHr">
@@ -403,74 +264,30 @@
   </div>
 
   <!-- Contact me Section -->
-  <section class="contact-section">
-  <div class="contact">
-    <div class="front side">
-      <div class="contact-content">
-        <h1>Denver J. Ogamba Bogonko</h1>
-        <p>I am a graphic designer and art director. I am as well specialised in front end web design, user experience and
-          creating identities. Throughout my career, I have worked with companies of all shapes and sizes that enriched my
-          experience
-        </p>
-      </div>
-    </div>
-    <div class="back side">
-      <div class="contact-content">
-        <h1>Contact Me</h1>
-        <form action="submit">
-          <label>Your Name :</label>
-          <input type="text" placeholder="denver Bogonko">
-          <label>Your E-mail :</label>
-          <input type="text" placeholder="Example@mail.com">
-          <label>Phone number :</label>
-          <input type="text" placeholder="0712512358" min="4" max="16">
-          <label>Your message :</label>
-          <textarea placeholder="The Subject"></textarea>
-          <br><br><br>
-          <!-- <a href="" class="hireMe">Done</a> -->
-         <input type="submit" value="Done" class="hireMe" style="width: fit-content;">
-        </form>
-      </div>
-    </div>
-  
+  <?php include 'contact.html'; ?>
+
+  <!-- end contact me section -->
+
+  <div id="pageHr">
+    <i><i></i></i>
   </div>
-  </section>
-  <a target="_blank" href="http://codepen.io/Moslim/" class="white-mode">OTHER PENS</a>
 
- 
-
-<!-- end contact me section -->
-
+  <!-- footer section -->
+  <?php include 'footer.html'; ?>
+  <!-- end footer section -->
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <!-- swiper js script -->
-  <script>
-
-  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js" integrity="sha512-wdUM0BxMyMC/Yem1RWDiIiXA6ssXMoxypihVEwxDc+ftznGeRu4s9Fmxl8PthpxOh5CQ0eqjqw1Q8ScgNA1moQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
   <!-- Jquery needed -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <script src="./assets/jquery/jquery.js"></script>
+
   <script src="js/scripts.js"></script>
 
-  <!-- Function used to shrink nav bar removing paddings and adding black background -->
-  <script>
-    $(document).scroll(function() {
-      var st = $(this).scrollTop();
-      $("#header", "#canvas").css({
-        "background-position-y": (-st / 20)
-      })
-      $("#decode-text").css({
-        "top": (-st / 5),
-        "bottom": (st / 5)
-      })
-    });
-  </script>
-
-
   <script src="./home.js"></script>
-  <script src="./assets/jquery/jquery.js"></script>
+
 </body>
 
 </html>
